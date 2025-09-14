@@ -1,0 +1,92 @@
+Enjoy the game with love
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sudoku</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center p-2 min-h-screen">
+    <div class="title">SUDOKU</div>
+    <div id="game-container" class="container md:flex-row flex-col flex-wrap relative">
+        <div id="mode-overlay" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 class="text-xl font-bold mb-3">Select Game Mode</h2>
+                <p class="text-xs text-gray-600 mb-3">Current game progress will be lost</p>
+                <button class="mode-btn" data-mode="classic">Classic</button>
+                <button class="mode-btn" data-mode="killer">Killer</button>
+                <button class="mode-btn" data-mode="postcards">Postcards</button>
+            </div>
+        </div>
+        <div id="game-over-overlay" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 class="text-xl font-bold mb-3">Game Over</h2>
+                <p class="text-sm mb-3">You have made 3 mistakes and lost this game</p>
+                <button id="new-game-btn-overlay" class="new-game-btn">New Game</button>
+            </div>
+        </div>
+        <div class="main-content flex flex-col items-center gap-3 w-full h-full">
+            <div class="difficulty-buttons flex flex-wrap justify-center gap-2">
+                <button class="difficulty-btn text-sm" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn text-sm" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn text-sm" data-difficulty="hard">Hard</button>
+                <button class="difficulty-btn text-sm" data-difficulty="expert">Expert</button>
+                <button class="difficulty-btn text-sm" data-difficulty="master">Master</button>
+                <button class="difficulty-btn text-sm" data-difficulty="extreme">Extreme</button>
+            </div>
+            <div id="sudoku-grid" class="sudoku-grid"></div>
+        </div>
+        <div class="controls flex flex-col gap-3 w-full h-full max-w-xs">
+            <div class="info-container flex justify-between p-2 bg-gray-200 rounded-lg">
+                <div class="info-item flex items-center gap-1">
+                    <span class="text-xs text-gray-500">Mistakes</span>
+                    <span id="mistakes-counter" class="text-sm font-semibold">0/3</span>
+                </div>
+                <div class="info-item">
+                    <span id="timer" class="text-sm font-semibold">00:00</span>
+                </div>
+                <!-- Sound Toggle Button -->
+                             <!-- <button id="sound-toggle" onclick="toggleMute()">🔊</button> -->
+            </div>
+            <div class="tool-buttons flex flex-wrap gap-2">
+                <button class="tool-btn text-xs" id="undo-btn">Undo</button>
+                <button class="tool-btn text-xs" id="erase-btn">Erase</button>
+                <button class="tool-btn text-xs" id="notes-btn">Notes</button>
+                <button class="tool-btn text-xs" id="hint-btn">Hint</button>
+                <button class="tool-btn text-xs" id="theme-btn">Theme</button>
+            </div>
+            <div id="number-controls" class="number-buttons grid grid-cols-3 gap-2">
+                <button class="number-btn text-lg" data-value="1">1</button>
+                <button class="number-btn text-lg" data-value="2">2</button>
+                <button class="number-btn text-lg" data-value="3">3</button>
+                <button class="number-btn text-lg" data-value="4">4</button>
+                <button class="number-btn text-lg" data-value="5">5</button>
+                <button class="number-btn text-lg" data-value="6">6</button>
+                <button class="number-btn text-lg" data-value="7">7</button>
+                <button class="number-btn text-lg" data-value="8">8</button>
+                <button class="number-btn text-lg" data-value="9">9</button>
+            </div>
+            <button id="new-game-btn" class="new-game-btn text-sm">New Game</button>
+            <div id="status-message" class="status-message text-sm"></div>
+            <div id="loading-overlay" class="overlay hidden">
+                <div class="overlay-content">
+                    <p class="text-sm">Loading game...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="instructions" class="mt-2 text-center text-xs text-gray-600 max-w-xs">
+        <p>Select a cell, then tap a number to fill in the cell</p>
+        <p>Only % of players were able to solve this puzzle!</p>
+    </div>
+<!-- Scripts -->
+<script src="js/sounds.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
+  
