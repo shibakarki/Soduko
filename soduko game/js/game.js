@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const numberControls = document.getElementById('number-controls');
 
     // Gemini API constants - Replace with your actual API key
-    const apiKey = "AIzaSyD_YYG2GBJa_srU9K0tWfOhKJyp3AWgsdI";
+ //   const apiKey = "AIzaSyD_YYG2GBJa_srU9K0tWfOhKJyp3AWgsdI";
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
     let puzzle = [];
     let solution = [];
@@ -523,4 +523,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial game setup
     applySavedTheme();
     initGame(currentDifficulty);
+
 });
